@@ -5,17 +5,26 @@
   --text-color: #333;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
   color: var(--text-color);
-  line-height: 1.6;
+  line-height: 1.7;
+  background: #fff;
 }
 
 /* Header & Navbar */
 header {
   background: var(--primary-color);
   padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .logo {
@@ -38,6 +47,7 @@ header {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
@@ -46,36 +56,39 @@ header {
 
 /* Hero Section */
 .hero {
-  background: var(--accent-color);
+  background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
   color: #fff;
   text-align: center;
-  padding: 100px 20px;
+  padding: 120px 20px;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 20px;
+  animation: fadeInDown 1s ease;
 }
 
 .hero p {
   font-size: 1.2rem;
   max-width: 700px;
   margin: 0 auto 20px;
+  animation: fadeInUp 1.2s ease;
 }
 
 .btn {
   display: inline-block;
   background: var(--primary-color);
   color: #fff;
-  padding: 10px 20px;
+  padding: 12px 24px;
   margin-top: 20px;
   text-decoration: none;
   border-radius: 5px;
-  transition: background 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .btn:hover {
-  background: #062030;
+  transform: scale(1.05);
+  background: #06405f;
 }
 
 /* Mission & Values */
@@ -98,12 +111,19 @@ header {
   border-radius: 6px;
   width: 250px;
   border: 1px solid #ddd;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 /* Services */
 .services {
   padding: 60px 20px;
   text-align: center;
+  background: #f4f7f9;
 }
 
 .service-grid {
@@ -115,11 +135,17 @@ header {
 }
 
 .service-card {
-  background: var(--light-bg);
+  background: #fff;
   padding: 20px;
   border-radius: 6px;
   width: 250px;
   border: 1px solid #ddd;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 /* Why Us */
@@ -138,6 +164,15 @@ header {
 .why-us li {
   margin: 10px 0;
   font-weight: 500;
+  position: relative;
+  padding-left: 20px;
+}
+
+.why-us li::before {
+  content: "✔";
+  color: var(--accent-color);
+  position: absolute;
+  left: 0;
 }
 
 /* Call to Action */
@@ -188,10 +223,49 @@ footer {
 .social-links a {
   color: #fff;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .social-links a:hover {
   color: var(--accent-color);
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive Design */

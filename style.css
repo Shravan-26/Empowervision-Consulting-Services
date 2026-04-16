@@ -54,6 +54,59 @@ header {
   color: var(--accent-color);
 }
 
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: var(--primary-color);
+    flex-direction: column;
+    width: 200px;
+    padding: 20px;
+    gap: 15px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Hamburger Animation (X toggle) */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
 /* Hero Section */
 .hero {
   background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
@@ -93,7 +146,7 @@ header {
 
 /* Mission & Values */
 .mission {
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
 }
 
@@ -121,7 +174,7 @@ header {
 
 /* Services */
 .services {
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
   background: #f4f7f9;
 }
@@ -150,7 +203,7 @@ header {
 
 /* Why Us */
 .why-us {
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
 }
 
@@ -180,7 +233,7 @@ header {
   background: var(--primary-color);
   color: #fff;
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
 }
 
 .cta h2 {
@@ -268,15 +321,14 @@ footer {
   }
 }
 
-/* Responsive Design */
+/* Responsive Timeline */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
+  .timeline::before {
+    left: 10px;
   }
-
-  .service-grid, .values-grid {
-    flex-direction: column;
-    align-items: center;
+  .timeline-item {
+    width: 100%;
+    align-self: flex-start;
   }
 
   .footer-content {
@@ -285,10 +337,38 @@ footer {
   }
 }
 
-/* About Hero */
-.about-hero {
-  background: linear-gradient(135deg, #009688, #0a2a43);
-  padding: 100px 20px;
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  align-self: flex-start;
+  background: var(--accent-color);
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #00796b;
+  transform: scale(1.05);
 }
 
 /* Timeline Section */
@@ -345,24 +425,9 @@ footer {
   }
 }
 
-/* Contact Form */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 600px;
+/* Utility: Container for consistent spacing */
+.container {
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
-
-.contact-form input,
-.contact-form textarea {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 1rem;
-}
-
-.contact-form button {
-  align-self: flex-start;
-}
-

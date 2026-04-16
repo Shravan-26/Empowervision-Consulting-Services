@@ -284,3 +284,64 @@ footer {
     text-align: center;
   }
 }
+
+/* About Hero */
+.about-hero {
+  background: linear-gradient(135deg, #009688, #0a2a43);
+  padding: 100px 20px;
+}
+
+/* Timeline Section */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 800px;
+  margin: 40px auto;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--accent-color);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 20px;
+  width: 45%;
+  position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+  align-self: flex-start;
+}
+
+.timeline-item:nth-child(even) {
+  align-self: flex-end;
+}
+
+.timeline-item h3 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+/* Responsive Timeline */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 10px;
+  }
+  .timeline-item {
+    width: 100%;
+    align-self: flex-start;
+  }
+}
+

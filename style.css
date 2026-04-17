@@ -61,6 +61,7 @@ header {
   align-items: center;
 }
 
+/* Dropdown button */
 .dropdown-btn {
   background: none;
   border: none;
@@ -78,11 +79,19 @@ header {
   border-right: 2px solid #fff;
   border-bottom: 2px solid #fff;
   transform: rotate(45deg);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  margin-left: 2px;
 }
 
+/* Rotate chevron when dropdown is active */
 .dropdown.active .chevron {
-  transform: rotate(-135deg); /* points up when active */
+  transform: rotate(-135deg);
+}
+
+/* Hover effect for desktop */
+.dropdown-btn:hover .chevron {
+  border-right-color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
 }
 
 /* Dropdown menu */

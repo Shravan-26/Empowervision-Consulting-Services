@@ -12,6 +12,6 @@ const dropdownBtn = document.querySelector('.dropdown-btn');
 const dropdown = document.querySelector('.dropdown');
 
 dropdownBtn.addEventListener('click', (e) => {
-  e.preventDefault(); // prevent page jump
+  e.preventDefault(); // stop page jump
   dropdown.classList.toggle('active');
 });

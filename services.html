@@ -7,18 +7,27 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <nav class="navbar">
-      <img src="assets/LOGO.png" alt="Empowervision Logo" class="logo">
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html" class="active">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<!-- Header -->
+<header>
+  <nav class="navbar">
+    <img src="assets/LOGO.png" alt="Empowervision Logo" class="logo">
+
+    <!-- Navigation Links -->
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- Hamburger Button -->
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+</header>
 
   <!-- Hero Section -->
   <section class="hero about-hero">
@@ -88,5 +97,14 @@
       </div>
     </div>
   </footer>
+  <script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+</script>
 </body>
 </html>

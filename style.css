@@ -57,13 +57,27 @@ header {
 /* Dropdown Menu */
 .dropdown {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.dropdown-toggle {
-  cursor: pointer;
+.dropdown-btn {
+  background: none;
+  border: none;
   color: #fff;
-  text-decoration: none;
-  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-btn:hover {
+  color: var(--accent-color);
+}
+
+/* Rotate arrow when active */
+.dropdown.active .dropdown-btn {
+  transform: rotate(180deg);
 }
 
 .dropdown-menu {
@@ -112,6 +126,19 @@ header {
   transition: all 0.3s ease;
 }
 
+/* Hamburger Animation (X toggle) */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
 /* Mobile Menu */
 @media (max-width: 768px) {
   .nav-links {
@@ -143,19 +170,6 @@ header {
     box-shadow: none;
     background: var(--primary-color);
   }
-}
-
-/* Hamburger Animation (X toggle) */
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Hero Section */

@@ -180,6 +180,34 @@ header {
     display: flex;
   }
 
+  /* Keep Services + arrow side by side */
+  .dropdown {
+    flex-direction: row;       /* link + button inline */
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .dropdown-btn {
+    margin-left: auto;         /* arrow sits to the right */
+  }
+
+  /* Subpages drop below neatly */
+  .dropdown-menu {
+    position: static;          /* no absolute positioning */
+    box-shadow: none;
+    background: var(--primary-color);
+    width: 100%;
+    margin-top: 5px;
+    flex-direction: column;    /* stack items vertically */
+  }
+
+  .dropdown-menu li a {
+    padding: 10px 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+}
+
   /* Mobile dropdown styling */
   .dropdown {
     flex-direction: column;
